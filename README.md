@@ -18,7 +18,7 @@ Please make sure the following tools and IDE are installed before proceeding.
  TestNG
 ```
 ## Importing the project
-1- Download the code from the given GitHub link: https://github.com/ajithtester/interview.git
+1- Download the code from the given GitHub link: https://github.com/ajithtester/interview.git (branch - master)
 2- Once downloaded extract the file
 3- Open eclipse
 4- Create a maven project
