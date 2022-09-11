@@ -1,6 +1,6 @@
 package testcase;
 
-import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,7 +16,7 @@ public class MovieInfo extends BaseClass {
 		try {
 			loadpropertiesFile();
 		} catch (Exception e) {
-			printInConsole(e.getMessage());
+			printErrorInConsole(e.getMessage());
 		}
 
 	}
@@ -27,7 +27,7 @@ public class MovieInfo extends BaseClass {
 		try {
 			openBrowserAndLaunchURL("Browser", "ImdbURL");
 		} catch (Exception e) {
-			printInConsole(e.getMessage());
+			printErrorInConsole(e.getMessage());
 		}
 
 	}
@@ -41,7 +41,7 @@ public class MovieInfo extends BaseClass {
 			ImdbPage.scrollToMovieDetails();
 			ImdbPage.retrieveMovieDetails();
 		} catch (Exception e) {
-			printInConsole(e.getMessage());
+			printErrorInConsole(e.getMessage());
 		}
 
 	}
@@ -52,7 +52,7 @@ public class MovieInfo extends BaseClass {
 		try {
 			openBrowserAndLaunchURL("Browser", "WikiURL");
 		} catch (Exception e) {
-			printInConsole(e.getMessage());
+			printErrorInConsole(e.getMessage());
 		}
 
 	}
@@ -66,7 +66,7 @@ public class MovieInfo extends BaseClass {
 			WikiPage.scrollToMovieDetails();
 			WikiPage.retrieveMovieDetails();
 		} catch (Exception e) {
-			printInConsole(e.getMessage());
+			printErrorInConsole(e.getMessage());
 		}
 
 	}
@@ -75,15 +75,15 @@ public class MovieInfo extends BaseClass {
 	public static void assertTheValues() throws Throwable {
 
 		try {
-			Assert.assertEquals(ImdbPage.countryName_IMDB, WikiPage.countryName_WIKI, "Countries are not same");
+			assertValues(ImdbPage.countryName_IMDB, WikiPage.countryName_WIKI, "Countries are not same");
 			printInConsole("Country in both source are same");
 
-			Assert.assertEquals(ImdbPage.movieReleaseDate_IMDB, WikiPage.movieReleaseDate_WIKI,
-					"Release dates are not same");
+			assertValues(ImdbPage.movieReleaseDate_IMDB, WikiPage.movieReleaseDate_WIKI, "Release dates are not same");
 			printInConsole("Release date in both source are same");
 		} catch (Exception e) {
-			printInConsole(e.getMessage());
+			printErrorInConsole(e.getMessage());
 		}
 
 	}
+
 }

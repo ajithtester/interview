@@ -11,6 +11,7 @@ public class WikiPage extends BaseClass {
 	public static void movieSearch() throws Throwable {
 
 		movieName = repository.getProperty("MovieName");
+		isDisplayed("Wikipage.SearchBar", "Search bar is not displayed");
 		typeDataInTheElement("Wikipage.SearchBar", movieName);
 		printInConsole("Entered movie name: " + movieName);
 
@@ -19,6 +20,7 @@ public class WikiPage extends BaseClass {
 	public static void selectMovieFromSearchList() throws Throwable {
 
 		Thread.sleep(3000);
+		isDisplayed("Wikipage.ListBox", "Suggestion box is not displayed");
 		findElementandClick("Wikipage.ListBox", movieName);
 
 	}
@@ -26,6 +28,7 @@ public class WikiPage extends BaseClass {
 	public static void scrollToMovieDetails() throws Throwable {
 
 		scrollToTheElement("Wikipage.Releasedate");
+		isDisplayed("Wikipage.Releasedate", "Details section is not displayed");
 		printInConsole("Scrolled to the movie details");
 
 	}
