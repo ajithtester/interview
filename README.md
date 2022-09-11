@@ -5,7 +5,7 @@ This is a script to extract the details of the movie (Pushpa: The Rise) in Wiki 
 The details we are extracting here are:
 1) Movie's country of origin.
 2) Movie's release date.
-Then we compare the extracted values from both source and our test will fail if the details are not matching.
+Then we compare the extracted values from both the sources and our test will fail if the details are not matching.
 
 
 ## Prerequisite
