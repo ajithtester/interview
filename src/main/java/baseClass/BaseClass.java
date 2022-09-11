@@ -88,29 +88,28 @@ public class BaseClass {
 		String locatorvalue = Locator.split(" ")[1];
 
 		WebElement webElement;
-		switch (locatortype) {
+        	  
+        	  
+        		if (locatortype.toLowerCase().equals("id"))
+        			 return  webElement = driver.findElement(By.id(locatorvalue));
+    			else if (locatortype.toLowerCase().equals("name"))
+    				return  webElement = driver.findElement(By.name(locatorvalue));
+    			else if (locatortype.toLowerCase().equals("classname") || (locatortype.toLowerCase().equals("class")))
+    				return  webElement = driver.findElement(By.className(locatorvalue));
+    			else if (locatortype.toLowerCase().equals("tagname") || (locatortype.toLowerCase().equals("tag")))
+    				return driver.findElement(By.className(locatorvalue));
+    			else if (locatortype.toLowerCase().equals("linktext") || (locatortype.toLowerCase().equals("link")))
+    				return driver.findElement(By.linkText(locatorvalue));
+    			else if (locatortype.toLowerCase().equals("partiallinktext"))
+    				return  webElement = driver.findElement(By.partialLinkText(locatorvalue));
+    			else if ((locatortype.toLowerCase().equals("cssselector")) || (locatortype.toLowerCase().equals("css")))
+    				return  webElement = driver.findElement(By.cssSelector(locatorvalue));
+    			else if (locatortype.toLowerCase().equals("xpath"))
+    				return  webElement = driver.findElement(By.xpath(locatorvalue));
+    			else
+    				throw new Exception("Unknown locator type '" + locatortype + "'");
 
-		case "id":
-			return  webElement = driver.findElement(By.id(locatorvalue));
 
-		case "xpath":
-			return  webElement = driver.findElement(By.xpath(locatorvalue));
-		case "css":
-			return  webElement = driver.findElement(By.cssSelector(locatorvalue));
-		case "tag":
-			return  webElement = driver.findElement(By.tagName(locatorvalue));
-		case "partialText":
-			return  webElement = driver.findElement(By.partialLinkText(locatorvalue));
-		case "linkText":
-			return  webElement = driver.findElement(By.linkText(locatorvalue));
-		case "name":
-			return  webElement = driver.findElement(By.name(locatorvalue));
-		case "className":
-			return  webElement = driver.findElement(By.className(locatorvalue));
-
-		default:
-			return  webElement = driver.findElement(By.xpath(locatorvalue));
-		}
 	}
 
 	public static List<WebElement> getlocators(String locator) throws Throwable {
@@ -121,28 +120,25 @@ public class BaseClass {
 		String locatorvalue = Locator.split(" ")[1];
 
 		List<WebElement> webElement;
-		switch (locatortype) {
-
-		case "id":
-			return webElement = driver.findElements(By.id(locatorvalue));
-		case "xpath":
-			return webElement = driver.findElements(By.xpath(locatorvalue));
-		case "css":
-
-			return webElement = driver.findElements(By.cssSelector(locatorvalue));
-		case "tag":
-			return webElement = driver.findElements(By.tagName(locatorvalue));
-		case "partialText":
-			return webElement = driver.findElements(By.partialLinkText(locatorvalue));
-		case "linkText":
-			return webElement = driver.findElements(By.linkText(locatorvalue));
-		case "name":
-			return webElement = driver.findElements(By.name(locatorvalue));
-		case "className":
-			return webElement = driver.findElements(By.className(locatorvalue));
-		default:
-			return webElement = driver.findElements(By.xpath(locatorvalue));
-		}
+   	  
+		if (locatortype.toLowerCase().equals("id"))
+			 return  webElement = driver.findElements(By.id(locatorvalue));
+		else if (locatortype.toLowerCase().equals("name"))
+			return  webElement = driver.findElements(By.name(locatorvalue));
+		else if (locatortype.toLowerCase().equals("classname") || (locatortype.toLowerCase().equals("class")))
+			return  webElement = driver.findElements(By.className(locatorvalue));
+		else if (locatortype.toLowerCase().equals("tagname") || (locatortype.toLowerCase().equals("tag")))
+			return driver.findElements(By.className(locatorvalue));
+		else if (locatortype.toLowerCase().equals("linktext") || (locatortype.toLowerCase().equals("link")))
+			return driver.findElements(By.linkText(locatorvalue));
+		else if (locatortype.toLowerCase().equals("partiallinktext"))
+			return  webElement = driver.findElements(By.partialLinkText(locatorvalue));
+		else if ((locatortype.toLowerCase().equals("cssselector")) || (locatortype.toLowerCase().equals("css")))
+			return  webElement = driver.findElements(By.cssSelector(locatorvalue));
+		else if (locatortype.toLowerCase().equals("xpath"))
+			return  webElement = driver.findElements(By.xpath(locatorvalue));
+		else
+			throw new Exception("Unknown locator type '" + locatortype + "'");
 	}
 
 	public static WebElement getwebElement(String Locator) throws Throwable {
@@ -183,7 +179,7 @@ public class BaseClass {
 			String movieName = Key.getText();
 			if (Key.getText().contains(value)) {
 				Key.click();
-				printInConsole("Movie selected from the suggestion is: "+ movieName);
+				printInConsole("Movie selected from the suggestion is: " + movieName);
 				break;
 			}
 		}
